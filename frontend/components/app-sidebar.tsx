@@ -19,17 +19,17 @@ const items = [
     icon: Home,
   },
   {
-    title: "Crops",
-    url: "/admin/orders",
+    title: "Products",
+    url: "/admin/products",
     icon: Inbox,
   },
   {
-    title: "Disease",
-    url: "/admin/products",
+    title: "Order",
+    url: "/admin/orders",
     icon: Calendar,
   },
   {
-    title: "Pests",
+    title: "User",
     url: "#",
     icon: Search,
   },

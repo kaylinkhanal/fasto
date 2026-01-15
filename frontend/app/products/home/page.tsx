@@ -1,17 +1,12 @@
 'use client'
 import EcomCard from '@/components/ecom-card'
-import { NavigationMenuDemo } from '@/components/nav-menu'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-
-// 1. blank page -----> data fetch ----> show in the blank UI
-// 2. fetch data -----> create the html with the data -----> show in the UI
-
 //client side rendering
 const ProductHome =  () => {
   const [products, setProducts] = useState([])
   const fetchdata = async () => {
-    const res = await fetch('https://fakestoreapi.com/products')
-    const data = await res.json()
+    const {data} = await axios.get('https://fakestoreapi.com/products')
     setProducts(data)
   }
 
