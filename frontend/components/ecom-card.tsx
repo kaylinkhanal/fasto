@@ -7,7 +7,7 @@ const EcomCard = (props) => {
     <div onClick={()=>router.push('/products/'+props.item.id)} className="bg-white m-4 shadow-lg p-6 rounded-lg w-[20%] border border-gray-200 hover:shadow-xl transition-shadow">
       <img
         src={props.item.image}
-        alt={props.item.title}
+        alt={props.item.name}
         className="w-full h-40 object-cover rounded-md mb-4"
       />
       <h2 className="text-lg font-bold text-gray-800 mb-2">{props.item.title}</h2>
@@ -17,3 +17,31 @@ const EcomCard = (props) => {
 };
 
 export default EcomCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

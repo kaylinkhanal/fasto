@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavigationMenuDemo } from "@/components/nav-menu";
 import { Toaster } from "@/components/ui/sonner";
+import ApolloWrapper from "./provider/apolloprovider";
+import ReduxProvider from "./provider/reduxprovider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+     
+          <ReduxProvider>
+          <ApolloWrapper>
+          {children}
+          </ApolloWrapper>
+          </ReduxProvider>
+
         <Toaster />
       </body>
     </html>

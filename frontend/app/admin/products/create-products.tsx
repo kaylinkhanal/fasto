@@ -33,7 +33,6 @@ export default function CreateProducts(props) {
     }
 
   const handleSubmit = async () => {
-   
     createProduct(formData);
     props.fetchdata();
     toast.success("Product created successfully!");

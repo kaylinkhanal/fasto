@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { UserIdleChart } from "@/components/user-idle-chart"
 
 export default function CreateOrders() {
   return (
@@ -25,6 +26,8 @@ export default function CreateOrders() {
       </SheetContent>
     </Sheet>
 
+
+    <UserIdleChart/>
     Oder section
     </div>
 
