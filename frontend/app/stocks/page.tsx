@@ -4,6 +4,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const Stocks = () => {
+    const count = useSelector(state => state.counter.value)
+
     const [stocksData, setStocksData] = useState([])
     const { stocks, marketStats, isConnected } = useSocket('http://localhost:3001');
     const fetchStocksData = async()=> {
@@ -15,7 +17,7 @@ const Stocks = () => {
     },[])
   return (
     <div>
-
+count is :{count}
            {isConnected ? '🟢 Connected' : '🔴 Disconnected'}
         {
           marketStats?.top_gainers?.length > 0 &&  marketStats?.top_gainers.map((item:any, id:number)=>{

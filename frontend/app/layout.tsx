@@ -4,7 +4,7 @@ import "./globals.css";
 import { NavigationMenuDemo } from "@/components/nav-menu";
 import { Toaster } from "@/components/ui/sonner";
 import ApolloWrapper from "./provider/apolloprovider";
-import ReduxProvider from "./provider/reduxprovider";
+import StoreProvider from "./StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-     
-          <ReduxProvider>
+        <StoreProvider>
           <ApolloWrapper>
-          {children}
+            {children}
           </ApolloWrapper>
-          </ReduxProvider>
+        </StoreProvider>
+
 
         <Toaster />
       </body>

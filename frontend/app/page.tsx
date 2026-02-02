@@ -13,16 +13,20 @@
 
 'use client'
 import EcomCard from '@/components/ecom-card'
+import Counter from '@/components/Counter'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 //client side rendering
-const Home =  () => {
-  const inputRef = useRef(null);
+const Home = () => {
+
+  const {username} = useSelector(state=>state.user)
+  const inputRef = useRef<HTMLInputElement>(null);
   const [products, setProducts] = useState([])
   const fetchdata = async () => {
-    const {data} = await axios.get('https://fakestoreapi.com/products')
+    const { data } = await axios.get('https://fakestoreapi.com/products')
     const { data: llmOutput } = await axios.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent', {
       contents: [
         {
@@ -42,24 +46,28 @@ const Home =  () => {
   }
 
   //this will run only once when the component is mounted
-   useEffect(()=>{
+  useEffect(() => {
     fetchdata()
 
-   },[])
+  }, [])
 
-   const handleClear =()=> {
-    if(inputRef){
+  const handleClear = () => {
+    if (inputRef.current) {
       debugger
-        inputRef.current.value = ''
+      inputRef.current.value = ''
     }
-   }
+  }
   return (
     <div>
-      <Input ref={inputRef}  placeholder="Search or buy anything..."/>
-      <Input  placeholder="Search or buy anything..."/>
+      <Input ref={inputRef} placeholder="Search or buy anything..." />
+      <Input placeholder="Search or buy anything..." />
 
       <Button onClick={handleClear}>Clear all</Button>
-    </div>    
+{username}
+      <div className="mt-8">
+        <Counter />
+      </div>
+    </div>
   )
 }
 

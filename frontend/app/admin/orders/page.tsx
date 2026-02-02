@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -12,8 +13,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { UserIdleChart } from "@/components/user-idle-chart"
+import { useSelector } from "react-redux"
 
 export default function CreateOrders() {
+  const {username} = useSelector(state=>state.user)
   return (
     <div>
       
@@ -22,7 +25,7 @@ export default function CreateOrders() {
         <Button variant="outline">Open</Button>
       </SheetTrigger>
       <SheetContent>
-      hi
+      hi {username}
       </SheetContent>
     </Sheet>
 
